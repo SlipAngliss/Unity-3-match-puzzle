@@ -1,13 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class Tile : MonoBehaviour
+public class board : MonoBehaviour
 {
-    public Vector3 m_punch;
-    public float m_duration;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +14,5 @@ public class Tile : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void OnMouseDown()
-    {
-        transform.DOPunchScale(m_punch, m_duration);
-
-        Debug.Log("Tile.OnMouseDown");
     }
 }

@@ -1,0 +1,73 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Board : MonoBehaviour
+{
+    /// <summary>
+    /// 이차원 배열 보류
+    /// </summary>
+    //private Tile[,] m_aryTilesArray = new Tile [ 6, 8 ];
+
+    private Dictionary<string, Tile> m_dicTilesDictionary = new Dictionary<string, Tile>();
+
+    private GameObject m_TilePrefab;
+
+    public int m_nWidth;
+    public int m_nHeight;
+    
+    void Start()
+    {
+        m_TilePrefab = Resources.Load("Prefabs/CandyGreen") as GameObject;
+
+        // 실험용
+        /*Tile tile_0 = Instantiate<Tile>(m_TilePrefab.transform.GetComponent<Tile>());
+
+        tile_0.transform.position = Vector3.zero;
+
+        // 타일의 부모를 Board로 설정
+        tile_0.transform.SetParent(this.transform);*/
+
+        CreateTiles();
+    }
+
+    // 프리팹으로 타일생성
+    private void CreateTiles()
+    {
+        for(int y = 0; y < m_nHeight; y++)
+        {
+            for(int x = 0; x < m_nWidth; x++)
+            {
+                string key = x.ToString() + "," + y.ToString();
+
+                Tile tile = Instantiate<Tile>(m_TilePrefab.transform.GetComponent<Tile>());
+                tile.transform.SetParent(this.transform);
+                tile.transform.position = new Vector3(x, y, 0f);
+
+                m_dicTilesDictionary.Add(key, tile);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Tile 을 반환함
+    /// </summary>
+    /// <param name="x">좌표</param>
+    /// <param name="y">좌표</param>
+    /// <returns>Tile</returns>
+    public Tile GetTile(int x, int y)
+    {
+        string key = x.ToString() + "," + y.ToString();
+        return m_dicTilesDictionary[key];
+    }
+
+    /// <summary>
+    /// Tile 을 반환함
+    /// </summary>
+    /// <param name="xy">좌표</param>
+    /// <returns>Tile</returns>
+    public Tile GetTile(string xy)
+    {
+        return m_dicTilesDictionary[xy];
+    }
+}
