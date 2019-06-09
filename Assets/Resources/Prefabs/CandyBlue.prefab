@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 966678612212276651}
   - component: {fileID: 5963364066193417143}
   - component: {fileID: 23845731277123124}
+  - component: {fileID: 4270208027552910721}
   - component: {fileID: 3868445828354515941}
   m_Layer: 0
   m_Name: CandyBlue
@@ -108,6 +109,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!50 &4270208027552910721
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636802610205370341}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &3868445828354515941
 MonoBehaviour:
   m_ObjectHideFlags: 0

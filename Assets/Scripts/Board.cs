@@ -11,14 +11,24 @@ public class Board : MonoBehaviour
 
     private Dictionary<string, Tile> m_dicTilesDictionary = new Dictionary<string, Tile>();
 
-    private GameObject m_TilePrefab;
+    private GameObject[] m_TilePrefab;
 
+    //static private Dictionary<string, GameObject> _cache = new Dictionary<string, GameObject>();
+    
     public int m_nWidth;
     public int m_nHeight;
     
     void Start()
     {
-        m_TilePrefab = Resources.Load("Prefabs/CandyGreen") as GameObject;
+        //m_TilePrefab = Resources.Load("Prefabs/CandyGreen") as GameObject;
+        GameObject TilePrefab1 = Resources.Load("Prefabs/CandyBlue") as GameObject;
+        GameObject TilePrefab2 = Resources.Load("Prefabs/CandyGreen") as GameObject;
+        GameObject TilePrefab3 = Resources.Load("Prefabs/CandyOrange") as GameObject;
+        GameObject TilePrefab4 = Resources.Load("Prefabs/CandyPurple") as GameObject;
+        GameObject TilePrefab5 = Resources.Load("Prefabs/CandyRed") as GameObject;
+        GameObject TilePrefab6 = Resources.Load("Prefabs/CandyYellow") as GameObject;
+
+        m_TilePrefab = new GameObject[] { TilePrefab1, TilePrefab2, TilePrefab3, TilePrefab4, TilePrefab5, TilePrefab6 };
 
         // 실험용
         /*Tile tile_0 = Instantiate<Tile>(m_TilePrefab.transform.GetComponent<Tile>());
@@ -31,16 +41,34 @@ public class Board : MonoBehaviour
         CreateTiles();
     }
 
+    //static public void Load(string Prefabs)
+    //{
+    //    object[] t0 = Resources.LoadAll(Prefabs);
+    //    for(int i = 0; i < t0.Length; i++)
+    //    {
+    //        GameObject t1 = (GameObject)(t0[i]);
+    //        _cache[t1.name] = t1;
+    //    }
+    //}
+
     // 프리팹으로 타일생성
     private void CreateTiles()
     {
-        for(int y = 0; y < m_nHeight; y++)
+        //Random rand = new Random();
+        //rand.
+
+        //int random = Random.Range(1, 6);
+
+        for (int y = 0; y < m_nHeight; y++)
         {
             for(int x = 0; x < m_nWidth; x++)
             {
+                // 1 ~ 6까지 랜덤숫자 발생
+                int random = Random.Range(0, 6);
+
                 string key = x.ToString() + "," + y.ToString();
 
-                Tile tile = Instantiate<Tile>(m_TilePrefab.transform.GetComponent<Tile>());
+                Tile tile = Instantiate<Tile>(m_TilePrefab[random].transform.GetComponent<Tile>());
                 tile.transform.SetParent(this.transform);
                 tile.transform.position = new Vector3(x, y, 0f);
 
@@ -59,7 +87,7 @@ public class Board : MonoBehaviour
     public Tile GetTile(int x, int y)
     {
         string key = x.ToString() + "," + y.ToString();
-        Debug.Log("Board.GetTile: x=" + x +"/y=" + y);
+        //Debug.Log("Board.GetTile: x=" + x +"/y=" + y);
         return m_dicTilesDictionary[key];
     }
 

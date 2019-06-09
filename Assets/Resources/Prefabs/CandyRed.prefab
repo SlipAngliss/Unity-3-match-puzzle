@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 487560505630813537}
   - component: {fileID: 465771068067571531}
   - component: {fileID: 3854031363371892657}
+  - component: {fileID: -629018631245742}
   - component: {fileID: 5673089087764107988}
   m_Layer: 0
   m_Name: CandyRed
@@ -108,6 +109,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!50 &-629018631245742
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985583673468690387}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &5673089087764107988
 MonoBehaviour:
   m_ObjectHideFlags: 0
