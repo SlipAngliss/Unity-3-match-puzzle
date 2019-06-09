@@ -7,23 +7,15 @@ public class Tile : MonoBehaviour
 {
     public Vector3 m_punch;
     public float m_duration;
-
-    // Start is called before the first frame update
-    void Start()
+    //public Vector3 TileTransform;
+    
+    /*private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        this.transform.position = TileTransform;
+    }*/
 
     void OnMouseDown()
     {
         transform.DOPunchScale(m_punch, m_duration);
-
-        Debug.Log("Tile.OnMouseDown");
     }
 }

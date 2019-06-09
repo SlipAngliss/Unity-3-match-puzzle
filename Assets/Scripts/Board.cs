@@ -45,6 +45,7 @@ public class Board : MonoBehaviour
                 tile.transform.position = new Vector3(x, y, 0f);
 
                 m_dicTilesDictionary.Add(key, tile);
+                GetTile(x, y);
             }
         }
     }
@@ -58,6 +59,7 @@ public class Board : MonoBehaviour
     public Tile GetTile(int x, int y)
     {
         string key = x.ToString() + "," + y.ToString();
+        Debug.Log("Board.GetTile: x=" + x +"/y=" + y);
         return m_dicTilesDictionary[key];
     }
 
@@ -68,6 +70,7 @@ public class Board : MonoBehaviour
     /// <returns>Tile</returns>
     public Tile GetTile(string xy)
     {
+        Debug.Log("Board.GetTile: xy=" + xy);
         return m_dicTilesDictionary[xy];
     }
 }
