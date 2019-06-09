@@ -70,7 +70,7 @@ public class Board : MonoBehaviour
 
                 Tile tile = Instantiate<Tile>(m_TilePrefab[random].transform.GetComponent<Tile>());
                 tile.transform.SetParent(this.transform);
-                tile.transform.position = new Vector3(x, y, 0f);
+                tile.transform.position = new Vector3(x + 2, y + 2, 0f);
 
                 m_dicTilesDictionary.Add(key, tile);
                 GetTile(x, y);
